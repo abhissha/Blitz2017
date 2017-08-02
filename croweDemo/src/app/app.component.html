@@ -1,12 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
-    <h1>{{title}}</h1>
-    <h2>Sharks </h2>
-    <ul class="heroes">
-      <li *ngFor="let shark of sharks"
-        [class.selected]="shark === selectedShark" 
-        (click)="onSelect(shark)">
-        <span class="badge">{{shark.id}}</span> {{shark.name}}
-      </li>
-    </ul>
-    <app-shark-detail [shark]="selectedShark"></app-shark-detail>
-
+<h1>{{title}}</h1>
+<nav>
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/sharks" routerLinkActive="active">Sharks</a>
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,8 @@
+<h3>Top Sharks</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let shark of sharks"  [routerLink]="['/detail', shark.id]"  class="col-1-4">
+    <div class="module hero">
+      <h4>{{shark.name}}</h4>
+    </div>
+  </a>
+</div>
