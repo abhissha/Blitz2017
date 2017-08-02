@@ -1,12 +1,19 @@
 <h2>Sharks </h2>
+<div>
+  <label>Hero name:</label> <input #sharkName />
+  <button (click)="add(sharkName.value); sharkName.value=''">
+    Add
+  </button>
+</div>
 <ul class="heroes">
   <li *ngFor="let shark of sharks" [class.selected]="shark === selectedShark" (click)="onSelect(shark)">
     <span class="badge">{{shark.id}}</span> {{shark.name}}
+    <button class="delete"(click)="delete(shark); $event.stopPropagation()">x</button>
   </li>
 </ul>
 <div *ngIf="selectedShark">
   <h2>
-    {{selectedShark.name | uppercase}} is my hero
+    {{selectedShark.name | uppercase}} is the best shark
   </h2>
   <button (click)="gotoDetail()">View Details</button>
 </div>

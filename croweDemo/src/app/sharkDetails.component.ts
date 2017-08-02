@@ -31,4 +31,9 @@ export class SharkDetailComponent implements OnInit {
     goBack(): void {
         this.location.back();
     }
+
+    save(): void {
+        this.sharkService.update(this.shark)
+            .then(() => this.goBack());
+    }
 }

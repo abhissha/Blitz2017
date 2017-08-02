@@ -31,4 +31,23 @@ export class SharkComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedShark.id]);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.sharkService.create(name)
+      .then(hero => {
+        this.sharks.push(hero);
+        this.selectedShark = null;
+      });
+  }
+
+  delete(shark: Shark): void {
+    this.sharkService
+      .delete(shark.id)
+      .then(() => {
+        this.sharks = this.sharks.filter(s => s !== shark);
+        if (this.selectedShark === shark) { this.selectedShark = null; }
+      });
+  }
 }
