@@ -1,11 +1,11 @@
 <h2>Sharks </h2>
 <div>
-  <label>Hero name:</label> <input #sharkName />
+  <label>Shark name:</label> <input #sharkName />
   <button (click)="add(sharkName.value); sharkName.value=''">
     Add
   </button>
 </div>
-<ul class="heroes">
+<ul class="sharks">
   <li *ngFor="let shark of sharks" [class.selected]="shark === selectedShark" (click)="onSelect(shark)">
     <span class="badge">{{shark.id}}</span> {{shark.name}}
     <button class="delete"(click)="delete(shark); $event.stopPropagation()">x</button>
