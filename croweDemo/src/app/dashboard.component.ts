@@ -16,6 +16,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.SharkService.getSharks()
-      .then(sharks => this.sharks = sharks.slice(0, 3));
+      .then(sharks => this.sharks = sharks.sort((a, b) =>  (b.rating - a.rating)).slice(0, 3));
   }
 }
