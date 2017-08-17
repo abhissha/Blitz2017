@@ -1,10 +1,15 @@
 <div *ngIf="shark">
     <h2>{{shark.name}} details!</h2>
-    <img style="width: 225px;" src="../assets/shark{{shark.id}}.jpg"/>
-    <div><label>id: </label>{{shark.id}}</div>
+    <img style="width: 250px;" src="../assets/shark{{shark.id}}.jpg"/>
     <div>
-        <label>name: </label>
+        <label>ID: </label>{{shark.id}}
+    </div>
+    <div>
+        <label>Name: </label>
         <input [(ngModel)]="shark.name" placeholder="name" />
+    </div>
+    <div>
+        <label>Rating: </label>{{shark.rating}}/10
     </div>
     <button (click)="goBack()">Back</button>
     <button (click)="save()">Save</button>
