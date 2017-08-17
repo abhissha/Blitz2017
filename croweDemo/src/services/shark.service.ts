@@ -43,7 +43,7 @@ export class SharkService {
 
     create(name: string): Promise<Shark> {
         return this.http
-            .post(this.sharksUrl, JSON.stringify({ name: name }), { headers: this.headers })
+            .post(this.sharksUrl, JSON.stringify({ name: name, rating: 0 }), { headers: this.headers })
             .toPromise()
             .then(res => res.json().data as Shark)
             .catch(this.handleError);

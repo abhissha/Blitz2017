@@ -36,8 +36,8 @@ export class SharkComponent implements OnInit {
     name = name.trim();
     if (!name) { return; }
     this.sharkService.create(name)
-      .then(hero => {
-        this.sharks.push(hero);
+      .then(shark => {
+        this.sharks.push(shark);
         this.selectedShark = null;
       });
   }
