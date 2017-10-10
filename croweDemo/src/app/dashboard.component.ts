@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Shark } from '../models/shark';
-import { SharkService } from '../services/shark.service';
+
+import { Hero }        from './hero';
+import { HeroService } from './hero.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'my-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: [ './dashboard.component.css' ]
 })
-
 export class DashboardComponent implements OnInit {
+  heroes: Hero[] = [];
 
-  sharks: Shark[] = [];
-
-  constructor(private SharkService: SharkService) { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-    this.SharkService.getSharks()
-      .then(sharks => this.sharks = sharks.sort((a, b) =>  (b.rating - a.rating)).slice(0, 3));
+    this.heroService.getHeroes()
+      .then(heroes => this.heroes = heroes.slice(1, 5));
   }
 }
